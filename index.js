@@ -3,125 +3,146 @@ const fs = require('fs');
 const teamMembers = [""];
 const generateHTML = require("./lib/Buildteam")
 const Intern = require("./lib/Intern")
+const Engineer = require("./lib/Engineer")
+const Manager = require("./lib/Manager")
 
 
 
 
-inquirer
-  .prompt([
-    {
-          type: 'input',
-          name: 'name',
-          message: 'Describe your project',
-      },
-      {
-          type: 'input',
-          name: 'ID',
-          message: 'How is your project installed by users and how do they launch your application?',
-      },
-      {
-          type: 'input',
-          name: 'Email',
-          message: 'Are there are specific limitations for usage?',
-      },
-    {
-      type: 'list',
-      name: 'position',
-      message: 'What position are you adding to your team?',
-      choices: ["Intern", "Engineer", "Manager", "I am ready to build"]
-    },
+function team() {
+    initialPrompt();
+    function initialPrompt() {
 
-])
+        inquirer.prompt([
+            {
+                type: 'list',
+                name: 'addEmployee',
+                message: 'Would you like to add a new employee to your team?',
+                choices: ["yes", "no"]
+            },
+        ])
+            .then((answers) => {
+                if (answers.addEmployee === "yes") {
+                    employeeInfo ();
+                    function employeeInfo () {
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'name',
+                                message: 'What is the name of the employee you are adding?',
+                            },
+                            {
+                                type: 'input',
+                                name: 'ID',
+                                message: 'What is the employee ID for this employee?',
+                            },
+                            {
+                                type: 'input',
+                                name: 'Email',
+                                message: 'What is the email address for this employee?',
+                            },
+                            {
+                                type: 'list',
+                                name: 'position',
+                                message: 'What role will this employee be fulfilling?',
+                                choices: ["Intern", "Engineer", "Manager"]
+                            },
 
-//     {
-//       type: 'input',
-//       name: 'description',
-//       message: 'Describe your project',
-//     },
-//     {
-//       type: 'input',
-//       name: 'installation',
-//       message: 'How is your project installed by users and how do they launch your application?',
-//     },
-//     {
-//       type: 'input',
-//       name: 'usage',
-//       message: 'Are there are specific limitations for usage?',
-//     },
-//     {
-//       type: 'input',
-//       name: 'contributions',
-//       message: 'Who would you like to recognize for contributing to this project?',
-//     },
-//     {
-//       type: 'input',
-//       name: 'tests',
-//       message: 'What sort of tests are you running for your code?',
-//     },
-//     {
-//         type: 'input',
-//         name: 'userName',
-//         message: 'What is your github username?',
-//       },
-//       {
-//         type: 'input',
-//         name: 'email',
-//         message: 'What is your email address?',
-//       },
-//     {
-//       type: 'list',
-//       name: 'license',
-//       message: 'Choose a license',
-//       choices: ["Apache 2.0", "MIT", "Boost Software License 1.0", "BSD 3-Clause License"],
-//     },
-    
-//   ])
-  .then((answers) => {
-    // switch (answers.position) {
-    //     case "Intern":
-    //        () => {
-    //         inquirer
-    //         .prompt([
-    //             {
-    //                 type: "input",
-    //                 name: "school",
-    //                 message: "Which school did you attend?"
-    //             }
-    //         ])
-    //         .then((response) => {
-    //             console.log(response)
-    //             const intern = new Intern(answers.name, answers.ID, answers.Email, response.school)
-    //             teamMembers.push(intern)
-    //             console.log(teamMembers)
-    //         })
-    //         };
-    //         break
-    //     case "Engineer":
-    //         addEngineer();
-    //         break
-    //     case "Manager":
-    //         addManager();
-    //     default:
-    //         buildHTML();
-    // }
-    if (answers.position = "Intern"){
-        inquirer
-            .prompt([
-                {
-                    type: "input",
-                    name: "school",
-                    message: "Which school did you attend?"
+                        ])
+                        .then((answers) => {
+                            switch (answers.position) {
+                                case "Intern":
+                                    inquirer
+                                        .prompt([
+                                            {
+                                                type: "input",
+                                                name: "school",
+                                                message: "Which school did you attend?"
+                                            },
+                                            {
+                                                type: "list",
+                                                name: "restart",
+                                                message: "Do you have more team members to add?",
+                                                choices: ["yes", "no"],
+                                            },
+                                        ])
+
+                                        .then((response) => {
+
+                                            console.log(response)
+                                            const intern = new Intern(answers.name, answers.ID, answers.Email, response.school)
+                                            teamMembers.push(intern)
+                                            console.log(teamMembers)
+                                            employeeInfo();
+                                        })
+
+                                    break
+                                case "Engineer":
+                                    inquirer
+                                        .prompt([
+                                            {
+                                                type: "input",
+                                                name: "github",
+                                                message: "What is the github for this Engineer?"
+                                            },
+                                            {
+                                                type: "list",
+                                                name: "restart",
+                                                message: "Do you have more team members to add?",
+                                                choices: ["yes", "no"],
+                                            },
+                                        ])
+
+                                        .then((response) => {
+                                            console.log(response)
+                                            const engineer = new Engineer(answers.name, answers.ID, answers.Email, response.github)
+                                            teamMembers.push(engineer)
+                                            console.log(teamMembers)
+                                            employeeInfo();
+                                        })
+
+                                    break
+                                case "Manager":
+                                    inquirer
+                                        .prompt([
+                                            {
+                                                type: "input",
+                                                name: "office",
+                                                message: "What is the officer number for the Manager?"
+                                            },
+                                            {
+                                                type: "list",
+                                                name: "restart",
+                                                message: "Do you have more team members to add?",
+                                                choices: ["yes", "no"],
+                                            },
+                                        ])
+
+                                        .then((response) => {
+
+                                            const manager = new Manager(answers.name, answers.ID, answers.Email, response.office)
+                                            teamMembers.push(manager)
+                                            console.log(teamMembers)
+                                            if (answers.restart === "yes") {
+                                                employeeInfo();
+                                            }
+                                        })
+
+                        
+                                default:
+                                    buildHTML();
+                        
+                            }
+                        })
+                    }
+                } else {
+                    buildHTML();
                 }
-            ])
-            .then((response) => {
-                console.log(response)
-                const intern = new Intern(answers.name, answers.ID, answers.Email, response.school)
-                teamMembers.push(intern)
-                console.log(teamMembers)
             })
     }
-    
-  });
+
+}
 
   function buildHTML(teamMembers) {
     const htmlPageContent = generateHTML(teamMembers);
@@ -132,12 +153,9 @@ inquirer
     );
   }
 
-function addIntern(){
-    inquirer
-}
 
 
-
+team();
 
 
 

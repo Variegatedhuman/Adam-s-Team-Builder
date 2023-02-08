@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const teamMembers = [""];
+const teamMembers = [];
 const generateHTML = require("./lib/Buildteam")
 const Intern = require("./lib/Intern")
 const Engineer = require("./lib/Engineer")
@@ -74,7 +74,11 @@ function team() {
                                             const intern = new Intern(answers.name, answers.ID, answers.Email, response.school)
                                             teamMembers.push(intern)
                                             console.log(teamMembers)
+                                            if (response.restart === "yes"){
                                             employeeInfo();
+                                            } else {
+                                                buildHTML();
+                                            }
                                         })
 
                                     break
@@ -95,11 +99,16 @@ function team() {
                                         ])
 
                                         .then((response) => {
+
                                             console.log(response)
                                             const engineer = new Engineer(answers.name, answers.ID, answers.Email, response.github)
                                             teamMembers.push(engineer)
                                             console.log(teamMembers)
-                                            employeeInfo();
+                                            if (response.restart === "yes"){
+                                                employeeInfo();
+                                                } else {
+                                                    buildHTML();
+                                                }
                                         })
 
                                     break
@@ -124,14 +133,16 @@ function team() {
                                             const manager = new Manager(answers.name, answers.ID, answers.Email, response.office)
                                             teamMembers.push(manager)
                                             console.log(teamMembers)
-                                            if (answers.restart === "yes") {
+                                            if (response.restart === "yes"){
                                                 employeeInfo();
-                                            }
+                                                } else {
+                                                    buildHTML();
+                                                }
                                         })
 
                         
                                 default:
-                                    buildHTML();
+                                    
                         
                             }
                         })

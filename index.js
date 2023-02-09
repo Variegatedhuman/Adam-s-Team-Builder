@@ -169,6 +169,51 @@ function team() {
 team();
 
 
+function addToRoster (teamMembers) {
+    var info ({name, id, email, office, github, school} = teamMembers)
+    
+    switch (object){
+        case office: {
+            info = `Office Number: ${office}`
+            generateCard(info);
+        }
+        break
+        case github: {
+            info = `github: ${github}`
+            generateCard(info);
+        }
+        break
+        case school: {
+            info = `School: ${school}`
+            generateCard(info);
+        }
+        break
+        default:
+
+    }
+
+
+
+}
+
+function generateCard(info) {
+
+    `
+    <div class="card">
+                <div class="card-head">
+                    <div class="card-name"> ${} </div>
+                    <div class="card-title"> ${} </div>
+                </div>
+                <div class="card-body">
+                    <div class="id">ID: ${}</div>
+                    <div class="email">Email: <a href="mailto:</a></div>
+                    <div class="">${va}</div>
+                </div>
+            </div>
+    `
+    
+}
+
 
 
 

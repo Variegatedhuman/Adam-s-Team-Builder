@@ -10,7 +10,7 @@ test("Creating a new intern", () => {
     const intern = new Intern ("Mary", 12, "Mary@gmail.com", "Loyola");
 
     expect(intern.name).toEqual(expect.any(String));
-    explect(intern.id).toEqual(expect.any(Number));
+    expect(intern.id).toEqual(expect.any(Number));
     expect(intern.email).toEqual(expect.any(String));
     expect(intern.school).toEqual(expect.any(String));
 })

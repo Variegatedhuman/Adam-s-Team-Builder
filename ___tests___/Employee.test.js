@@ -10,7 +10,7 @@ test("Creating a new employee", () => {
     const employee = new Employee ("Brian", 42, "Brian@gmail.com");
 
     expect(employee.name).toEqual(expect.any(String));
-    explect(employee.id).toEqual(expect.any(Number));
+    expect(employee.id).toEqual(expect.any(Number));
     expect(employee.email).toEqual(expect.any(String));
 
 })
@@ -22,5 +22,5 @@ test("Checks employee details", () => {
     expect(employee.getName()).toEqual(expect.any(String))
     expect(employee.getId()).toEqual(expect.any(Number))
     expect(employee.getEmail()).toEqual(expect.any(String))
-    expect(employee.getRole()).toEqual(expect.any("Employee"))
+    expect(employee.getRole()).toBe("Employee")
 })

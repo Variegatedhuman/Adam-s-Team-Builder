@@ -6,7 +6,7 @@ The goal of this project was to design a generator for creating a Team Roster fo
     
 ## Table of Contents 
 
-* [Instructions for use](#Instructions for use)
+* [Instructions](#Instructions)
 
 * [Screenshot](#Screenshot)
 
@@ -19,7 +19,7 @@ The goal of this project was to design a generator for creating a Team Roster fo
 * [Questions](#Questions)
 
 
-## Instructions for use
+## Instructions
 
 In order to use this applications you will need to clone this repository. From there, run an npm install in a terminal. Then to start building your Team Roster you will type 'node index.js' in the terminal. 
     

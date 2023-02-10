@@ -1,0 +1,35 @@
+body {
+    background-color: blanchedalmond;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+header {
+    background-color: rgb(2, 1, 65);
+    padding-bottom: 3%;
+    padding-top: 3%;
+    color: white;
+   
+}
+
+.card-head {
+    text-align: center;
+    border: 2px solid black;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.card-style {
+    background: #cbd2f1d0;
+    color: rgb(0, 0, 0);
+    padding: 2em;
+    border-radius: 30px;
+    margin: 1.3em;
+    font-size: 1.2em;
+    border-style: ridge;
+    border: 20px bold black;
+    font-weight: 200;
+}
+

@@ -24,5 +24,5 @@ test("Checks manager details", () => {
     expect(manager.getId()).toEqual(expect.any(Number))
     expect(manager.getEmail()).toEqual(expect.any(String))
     expect(manager.getOffice()).toEqual(expect.any(Number))
-    expect(manager.getRole()).toBe("Manager")
+    expect(manager.getRole()).toEqual("Manager")
 })

@@ -22,6 +22,6 @@ test("Checks intern details", () => {
     expect(intern.getName()).toEqual(expect.any(String))
     expect(intern.getId()).toEqual(expect.any(Number))
     expect(intern.getEmail()).toEqual(expect.any(String))
-    expect(intern.getschool()).toEqual(expect.any(String))
+    expect(intern.getSchool()).toEqual(expect.any(String))
     expect(intern.getRole()).toEqual(expect.any("Intern"))
 })

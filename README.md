@@ -26,7 +26,7 @@ The goal of this project was to create a generator that would produce high quali
 
 
 
-[Link to video](https://drive.google.com/file/d/1nCq0x3bkl_X6pLl1wUAsU9iYB-MJOOdK/view)
+[Link to video](https://drive.google.com/file/d/1xA3tgBYEsl_qD2pIZ_aXgsk31PM1qC4c/view)
     
 ## Usage
     

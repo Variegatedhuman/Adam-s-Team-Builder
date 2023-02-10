@@ -2,9 +2,11 @@
 
 ## Description
 
-The goal of this project was to create a generator that would produce high quality README.md files for users
+The goal of this project was to design a generator for creating a Team Roster for a Tech company. The application takes in user submitted data about each employee that works at the company and provides an html document containing the finished Team Roster 
     
 ## Table of Contents 
+
+* [Instructions for use](#Instructions for use)
 
 * [Screenshot](#Screenshot)
 
@@ -15,6 +17,11 @@ The goal of this project was to create a generator that would produce high quali
 * [Contributing](#Contributing)
     
 * [Questions](#Questions)
+
+
+## Instructions for use
+
+In order to use this applications you will need to clone this repository. From there, run an npm install in a terminal. Then to start building your Team Roster you will type 'node index.js' in the terminal. 
     
 ## Screenshot
 

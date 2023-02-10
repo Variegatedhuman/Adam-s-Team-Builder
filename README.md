@@ -20,7 +20,7 @@ The goal of this project was to create a generator that would produce high quali
 
 
 
-![Screenshot](assets/)
+![Screenshot](assets/TeamRoster.png)
 
 ## Video
 
